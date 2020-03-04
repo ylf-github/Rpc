@@ -1,0 +1,28 @@
+syntax="proto3";
+option optimize_for=SPEED;  //加快解析
+option java_outer_classname="MyDataInfo";
+
+message MyData{
+    enum Type{
+        Num=0;    //proto3要求枚举类型编号从0开始
+        Res=1;
+    }
+
+    Type type=1;
+
+    oneof data{
+        Nums num=2;
+        Res res=3;
+    }
+
+}
+
+message Nums{
+    int32 n1=1;
+    int32 n2=2;
+}
+
+message Res{
+    int32 res=1;
+}
+
